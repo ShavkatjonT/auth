@@ -2,7 +2,7 @@ module.exports = {
   HOST: "ep-rough-snowflake-72708740-pooler.us-east-1.postgres.vercel-storage.com",
   USER: "default",
   PASSWORD: "YIWz7py5AcrD",
-  DB: "test2",
+  DB: "test3",
   dialect: "postgres",
   pool: {
     max: 5,
