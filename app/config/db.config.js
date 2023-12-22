@@ -1,16 +1,24 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "postgres",
-  PASSWORD: "1",
-  DB: "testdb",
+  HOST: "ep-rough-snowflake-72708740-pooler.us-east-1.postgres.vercel-storage.com",
+  USER: "default",
+  PASSWORD: "YIWz7py5AcrD",
+  DB: "auth",
   dialect: "postgres",
   pool: {
     max: 5,
     min: 0,
     acquire: 30000,
     idle: 10000
-  }
+  },
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+    useUTC: false,
+  },
 };
+
 
 
 // const { Sequelize } = require('sequelize');
