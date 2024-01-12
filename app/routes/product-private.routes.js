@@ -10,15 +10,15 @@ module.exports = function(app) {
     next();
   });
 
-  app.get("/api/products/private/all",[authJwt.verifyToken, authJwt.isModerator], controller.all);
+  app.get("/api/products/private/all",[authJwt.verifyToken,], controller.all);
   app.get(
-    "/api/products/private/:id",[authJwt.verifyToken, authJwt.isModerator],
+    "/api/products/private/:id",[authJwt.verifyToken,],
     controller.getOne
   );
-  app.get('/api/products/private/filter',[authJwt.verifyToken, authJwt.isModerator], controller.getByFilter);
-  app.post('/api/products/private',[authJwt.verifyToken, authJwt.isModerator], controller.createProduct);
-  app.delete('/api/products/private/:id',[authJwt.verifyToken, authJwt.isModerator], controller.deleteProduct);
-  app.put('/api/products/private/:id',[authJwt.verifyToken, authJwt.isModerator], controller.updateProduct);
+  app.get('/api/products/private/filter',[authJwt.verifyToken,], controller.getByFilter);
+  app.post('/api/products/private',[authJwt.verifyToken,], controller.createProduct);
+  app.delete('/api/products/private/:id',[authJwt.verifyToken,], controller.deleteProduct);
+  app.put('/api/products/private/:id',[authJwt.verifyToken,], controller.updateProduct);
 
   // app.get(
   //   "/api/product/mod",

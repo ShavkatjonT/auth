@@ -13,7 +13,7 @@ exports.all = async(req, res) => {
     // Mahsulotlar topilsa, uni JSON formatida qaytarish
     res.json(products);
   } catch (error) {
-    console.error(error);
+    console.error(16, error.stack);
     res.status(500).json({ message: 'Serverda xatolik yuz berdi' });
   }
 };
