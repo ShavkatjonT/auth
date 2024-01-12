@@ -11,6 +11,14 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+app.use((req, res, next) => {
+  res.header({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      "Access-Control-Allow-Headers": "*",
+  });
+  next();
+});
 
 // database
 const db = require("./app/models");
