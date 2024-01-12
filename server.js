@@ -64,7 +64,7 @@ app.listen(PORT, async () => {
   await db.sequelize.authenticate();
   await db.sequelize.sync({ force: false }).then(() => {
     console.log('Drop and Resync Database with { force: true }');
-    initial();
+    // initial();
   });
   console.log(`Server is running on port ${PORT}.`);
 });
