@@ -26,10 +26,10 @@ const Role = db.role;
 
 // db.sequelize.sync();
 // force: true will drop the table if it already exists
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync Database with { force: true }');
-  initial();
-});
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync Database with { force: true }');
+//   initial();
+// });
 
 // simple route
 app.get("/", (req, res) => {
@@ -43,10 +43,7 @@ require('./app/routes/product-public.routes')(app);
 require('./app/routes/product-private.routes')(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+
 
 function initial() {
   Role.create({
@@ -64,3 +61,11 @@ function initial() {
     name: "admin"
   });
 }
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, async () => {
+  await db.sequelize.authenticate();
+  await db.sequelize.sync();
+
+  console.log(`Server is running on port ${PORT}.`);
+});
